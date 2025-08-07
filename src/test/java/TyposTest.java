@@ -25,8 +25,7 @@ public class TyposTest {
         for (int index = 0; index < 10; index++) {
             driver.navigate().refresh();
             softAssert.assertEquals(text, "Sometimes you'll see a typo, other times you won't.");
-            softAssert.assertAll();
-        }
+        }softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

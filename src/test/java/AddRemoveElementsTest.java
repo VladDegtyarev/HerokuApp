@@ -21,14 +21,16 @@ public class AddRemoveElementsTest {
 
     @Test
     public void checkAddRemoveElements() {
+        SoftAssert softAssert = new SoftAssert();
         driver.get("https://the-internet.herokuapp.com/add_remove_elements/");
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
         List<WebElement> findDelete = driver.findElements(By.xpath("//button[text()='Delete']"));
-        Assert.assertEquals(findDelete.size(), 2);
+        softAssert.assertEquals(findDelete.size(), 2);
         driver.findElement(By.xpath("//button[text()='Delete']")).click();
         List<WebElement> afterfindDelete = driver.findElements(By.xpath("//button[text()='Delete']"));
-        Assert.assertEquals(afterfindDelete.size(), 1);
+        softAssert.assertEquals(afterfindDelete.size(), 1);
+        softAssert.assertAll();
         driver.quit();
     }
 

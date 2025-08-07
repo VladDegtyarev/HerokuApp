@@ -19,13 +19,15 @@ public class SortableDataTablesTest {
 
     @Test
     public void checkCheckboxesTest() {
+        SoftAssert softAssert = new SoftAssert();
         driver.get("http://the-internet.herokuapp.com/tables");
         String nameSmith = driver.findElement(By.xpath("//table//tr[1]//td[1]")).getText();
         String emailFrank = driver.findElement(By.xpath("//table//tr[2]//td[3]")).getText();
         String webDoe = driver.findElement(By.xpath("//table//tr[3]//td[5]")).getText();
-        Assert.assertEquals(nameSmith, "Smith");
-        Assert.assertEquals(emailFrank, "fbach@yahoo.com");
-        Assert.assertEquals(webDoe, "http://www.jdoe.com");
+        softAssert.assertEquals(nameSmith, "Smith");
+        softAssert.assertEquals(emailFrank, "fbach@yahoo.com");
+        softAssert.assertEquals(webDoe, "http://www.jdoe.com");
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

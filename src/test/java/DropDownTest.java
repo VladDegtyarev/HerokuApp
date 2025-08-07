@@ -22,15 +22,17 @@ public class DropDownTest {
 
     @Test
     public void checkCheckboxesTest() {
+        SoftAssert softAssert = new SoftAssert();
         driver.get("http://the-internet.herokuapp.com/dropdown");
         WebElement dropDown = driver.findElement(By.id("dropdown"));
         Select select = new Select(dropDown);
         List<WebElement> options = select.getOptions();
-        Assert.assertEquals(options.get(0).getText(), "Please select an option");
-        Assert.assertEquals(options.get(1).getText(), "Option 1");
-        Assert.assertEquals(options.get(2).getText(), "Option 2");
+        softAssert.assertEquals(options.get(0).getText(), "Please select an option");
+        softAssert.assertEquals(options.get(1).getText(), "Option 1");
+        softAssert.assertEquals(options.get(2).getText(), "Option 2");
         select.selectByVisibleText("Option 1");
-        Assert.assertTrue(select.getFirstSelectedOption().isSelected());
+        softAssert.assertTrue(select.getFirstSelectedOption().isSelected());
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

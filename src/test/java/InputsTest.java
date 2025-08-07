@@ -22,15 +22,17 @@ public class InputsTest {
 
     @Test
     public void checkCheckboxesTest() {
+        SoftAssert softAssert = new SoftAssert();
         driver.get("http://the-internet.herokuapp.com/inputs");
         WebElement value = driver.findElement(By.cssSelector("input"));
         value.sendKeys("10");
         value.sendKeys(Keys.ARROW_UP);
-        Assert.assertEquals(value.getAttribute("value"), "11");
+        softAssert.assertEquals(value.getAttribute("value"), "11");
         value.clear();
         value.sendKeys("qwerty");
         value.sendKeys(Keys.ARROW_DOWN);
-        Assert.assertEquals(value.getAttribute("value"), "-1");
+        softAssert.assertEquals(value.getAttribute("value"), "-1");
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)
