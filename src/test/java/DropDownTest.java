@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
@@ -21,7 +22,7 @@ public class DropDownTest {
     }
 
     @Test
-    public void checkCheckboxesTest() {
+    public void checkDropDownTest() {
         SoftAssert softAssert = new SoftAssert();
         driver.get("http://the-internet.herokuapp.com/dropdown");
         WebElement dropDown = driver.findElement(By.id("dropdown"));

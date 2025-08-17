@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
@@ -21,7 +22,7 @@ public class InputsTest {
     }
 
     @Test
-    public void checkCheckboxesTest() {
+    public void checkInputsTest() {
         SoftAssert softAssert = new SoftAssert();
         driver.get("http://the-internet.herokuapp.com/inputs");
         WebElement value = driver.findElement(By.cssSelector("input"));

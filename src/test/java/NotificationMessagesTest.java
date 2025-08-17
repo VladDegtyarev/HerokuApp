@@ -19,7 +19,7 @@ public class NotificationMessagesTest {
     }
 
     @Test
-    public void checkCheckboxesTest() {
+    public void checkNotificationTest() {
         SoftAssert softAssert = new SoftAssert();
         driver.get("http://the-internet.herokuapp.com/notification_message_rendered");
         driver.findElement(By.xpath("//*[@id='content']/div/p/a")).click();

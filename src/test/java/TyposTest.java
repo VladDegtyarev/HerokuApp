@@ -18,7 +18,7 @@ public class TyposTest {
     }
 
     @Test
-    public void checkCheckboxesTest() {
+    public void checkTyposTest() {
         SoftAssert softAssert = new SoftAssert();
         driver.get("http://the-internet.herokuapp.com/typos");
         String text = driver.findElement(By.xpath("//*[@id=\"content\"]/div/p[2]")).getText();
